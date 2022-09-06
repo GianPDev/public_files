@@ -8,9 +8,9 @@ printf %s\,\   "$@"
 echo ""
 for group in "$@"; do
 if [ $(getent group $group) ]; then
-echo "[AVAILABLE✅]\t- $group group"
+echo "[AVAILABLE✅] - $group group"
 else
-echo "[MISSING❌]\t- $group group"
+echo "[MISSING❌] - $group group"
 fi
 done
 
@@ -20,8 +20,8 @@ printf %s\,\   "$@"
 echo ""
 for cmd in "$@"; do
 if [ -x "$(command -v $cmd)" ]; then
-echo "[AVAILABLE✅]\t- $cmd"
+echo "[AVAILABLE✅] - $cmd"
 else
-echo "[MISSING❌]\t- $cmd"
+echo "[MISSING❌] - $cmd"
 fi
 done
