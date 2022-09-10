@@ -45,6 +45,12 @@ if [[ "$1" =~ " " ]]; then
 	exit 1
 fi
 
+# check if name has - 
+if [[ "$1" =~ "-" ]]; then
+	echo "ERROR: Project name cannot contain dashes (-)"
+	exit 1
+fi
+
 # create yes/no prompt to accept project name
 echo "Create project $1? (y/n)"
 # while loop to choose answer
@@ -169,6 +175,7 @@ fn hello_world(cx: Scope) -> Element {
 EOF
 cat << EOF > "./$1/src/lib.rs"
 pub mod utils;
+pub mod app;
 EOF
 cat << EOF > "./$1/src/utils/mod.rs"
 pub mod wasm_tracing;
